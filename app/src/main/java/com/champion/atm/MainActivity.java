@@ -9,8 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private final static int REQUEST_LOGIN = 102;
+    private final static int REQUEST_USERINFO = 105;
     boolean logon = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (!logon){
             Intent intent = new Intent(this, LoginActivity.class);
-                    startActivity(intent);
+                    startActivityForResult(intent,REQUEST_LOGIN);
         }
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -32,6 +35,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode){
+            case REQUEST_LOGIN:
+                if(requestCode == RESULT_OK){
+                String userid = data.getStringExtra("EXRA_USERID");
+                Toast.makeText(this,"Login userid:"+userid,Toast.LENGTH_LONG).show();
+                    getSharedPreferences("atm",MODE_PRIVATE)
+                            .edit()
+                            .putString("USERID",userid)
+                            .apply();
+            }else{
+                    finish();
+                }
+            break;
+            case REQUEST_USERINFO:
+                if(resultCode == RESULT_OK){
+                    String nickname = data.getStringExtra("EXTRA_NICKNAME");
+                    String phone = data.getStringExtra("EXTRA_PHONE");
+                    Toast.makeText(this,"Nickname"+nickname,Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,"Phone"+phone,Toast.LENGTH_LONG).show();
+                }
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

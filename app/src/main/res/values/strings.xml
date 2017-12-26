@@ -5,6 +5,7 @@
         <item>15</item>
         <item>16</item>
         <item>17</item>
-        <item>19</item>
+        <item>18</item>
     </string-array>
+    <string name="title_activity_addr">AddrActivity</string>
 </resources>

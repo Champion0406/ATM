@@ -17,18 +17,20 @@ public class Ch8Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ch8);
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        String[] data = {"AAA","BBB","CCC"};
+        final String[] data = {"AAA","BBB","CCC"};
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,data);
         spinner.setAdapter(adapter);
-        spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Log.d(TAG,"onItemClick:" +position);
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position  , long l) {
+                Log.d(TAG,"onItemSelected:" +data[position]);
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView){
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
+
     }
 }

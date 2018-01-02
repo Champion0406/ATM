@@ -1,5 +1,6 @@
 package com.champion.atm;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,5 +31,20 @@ public class CityActivity extends AppCompatActivity implements  AdapterView.OnIt
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
         Log.d(TAG,"onItemClick:"+position+"/"+cities[position]);
+        String[] data = null;
+        if(position == 0){
+            startActivity(new Intent(this, AreaActivity.class));
+            data = new String[]{"中正區", "暖暖區", "八堵區"};
+        }
+        if(position == 1){
+            startActivity(new Intent(this, AreaActivity.class));
+            data = new String[]{"永和區", "板橋區", "新莊區"};
+        }
+        if(position == 2){
+            startActivity(new Intent(this, AreaActivity.class));
+            data = new String[]{"信義區", "大安區", "士林區"};
+        }
+
     }
+
 }

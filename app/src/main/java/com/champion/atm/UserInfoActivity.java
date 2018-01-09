@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 
 public class UserInfoActivity extends AppCompatActivity {
-    private static final String TAG = "";
+    private static final String TAG = UserInfoActivity.class.getSimpleName();
     private EditText edNickname;
     private EditText edPhone;
     private Spinner ages;
@@ -41,6 +41,7 @@ public class UserInfoActivity extends AppCompatActivity {
         edPhone.setText(edphone);
     }
     public  void addr(View view){
+
         startActivity(new Intent(this,CityActivity.class));
     }
 

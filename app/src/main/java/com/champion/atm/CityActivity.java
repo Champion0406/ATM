@@ -12,16 +12,17 @@ import android.widget.ListView;
 public class CityActivity extends AppCompatActivity implements  AdapterView.OnItemClickListener {
 
     private ListView city;
-    private  static  final String TAG = CityActivity.class.getSimpleName();
+    private static final String TAG = CityActivity.class.getSimpleName();
     private String[] cities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city);
-        city =(ListView) findViewById(R.id.city);
-        cities = new String[]{"新北市","基隆市","台北市"};
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,cities);
+        city = (ListView) findViewById(R.id.city);
+        cities = new String[]{"新北市", "基隆市", "台北市"};
+        ArrayAdapter adapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, cities);
         city.setAdapter(adapter);
         city.setOnItemClickListener(this);
 
@@ -30,21 +31,12 @@ public class CityActivity extends AppCompatActivity implements  AdapterView.OnIt
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-        Log.d(TAG,"onItemClick:"+position+"/"+cities[position]);
-        String[] data = null;
-        if(position == 0){
-            startActivity(new Intent(this, AreaActivity.class));
-            data = new String[]{"中正區", "暖暖區", "八堵區"};
-        }
-        if(position == 1){
-            startActivity(new Intent(this, AreaActivity.class));
-            data = new String[]{"永和區", "板橋區", "新莊區"};
-        }
-        if(position == 2){
-            startActivity(new Intent(this, AreaActivity.class));
-            data = new String[]{"信義區", "大安區", "士林區"};
+        Log.d(TAG, "onItemClick:" + position + "/" + cities[position]);
+            Intent i = new Intent(this, AreaActivity.class);
+            i.putExtra("Area", cities[position]);
+            startActivity(i);
+
         }
 
     }
 
-}

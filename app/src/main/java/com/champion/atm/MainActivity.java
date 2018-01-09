@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                             .putString("PHONE" ,phone)
                             .apply();
                 }
-                break;
+
         }
     }
 

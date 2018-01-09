@@ -18,7 +18,8 @@ public class Ch8Activity extends AppCompatActivity {
         setContentView(R.layout.activity_ch8);
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         final String[] data = {"AAA","BBB","CCC"};
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,data);
+        ArrayAdapter adapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1,data);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

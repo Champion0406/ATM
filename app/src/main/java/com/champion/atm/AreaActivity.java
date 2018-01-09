@@ -8,7 +8,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class AreaActivity extends AppCompatActivity {
+import static android.R.attr.data;
+public class AreaActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+                private String[] area1;
+                private String[] area2;
+                private String[] area3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

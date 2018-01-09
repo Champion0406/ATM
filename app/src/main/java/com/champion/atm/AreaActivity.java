@@ -45,7 +45,6 @@ public class AreaActivity extends AppCompatActivity implements AdapterView.OnIte
 //                android.R.layout.simple_list_item_1, data);
 //        area.setAdapter(adapter1);
     }
-
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
